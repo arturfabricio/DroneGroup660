@@ -43,40 +43,6 @@ def distance_to(goal_location):
     dist = np.linalg.norm(np.array(goal_location) - np.array(my_location))
     return dist
 
-def set_velocities(linear_vel, angular_vel):
-    """Set linear and angular velocities of the robot.
-
-    Arguments:
-    linear_velocity  -- Forward velocity in m/s.
-    angular_velocity -- Rotational velocity rad/s. Positive direction is
-                        counter-clockwise.
-    """
-    diff_vel = angular_vel * WHEEL_BASE_RADIUS / WHEEL_RADIUS
-    right_vel = (linear_vel + diff_vel) / WHEEL_RADIUS
-    left_vel = (linear_vel - diff_vel) / WHEEL_RADIUS
-    fastest_wheel = abs(max(right_vel, left_vel))
-    if fastest_wheel > MAX_WHEEL_VELOCITY:
-        left_vel = left_vel / fastest_wheel * MAX_WHEEL_VELOCITY
-        right_vel = right_vel / fastest_wheel * MAX_WHEEL_VELOCITY
-    left_motor.setVelocity(left_vel)
-    right_motor.setVelocity(right_vel)
-
-
-def pure_pursuit(x_track_error, angle_error):
-    """Follow a line.
-
-    Arguments:
-    x_track_error -- Cross-track error. The distance error perpenticular to the
-                     reference line. If the robot is located to the left of the
-                     line,it gives a positive error; negative to the right.
-    angle_error   -- Angle error is the difference between the angle of the line
-                     and the heading of the robot. If the reference line points
-                     towards North and the robot to East, the error is positive;
-                     negative to West.
-    """
-    ang_vel = -0.05 * x_track_error + 0.3 * angle_error
-    set_velocities(TARGET_FORWARD_VELOCITY, ang_vel)
-
 # create the Robot instance.
 robot = Supervisor()
 TIME_STEP = 8
@@ -143,6 +109,7 @@ while robot.step(timestep) != -1:
     camera_roll.setPosition(-0.115*roll_acceleration)
     camera_pitch.setPosition(-0.1*pitch_acceleration)
 
+#Takeoff using the PID:
     roll_input = k_roll_p * roll + roll_acceleration + roll_disturbance
     pitch_input = k_pitch_p * pitch - pitch_acceleration + pitch_disturbance
     yaw_input = yaw_disturbance
