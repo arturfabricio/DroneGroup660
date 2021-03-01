@@ -1,0 +1,4 @@
+mavic2proPython is direct copy from this repository: https://github.com/alpinmaarif/Webots-DJI-Mavic-2-Pro-PID-Controller
+mavic2proNoCSV does not use the CSV file "params", still a PID-tuned drone (hovering in place).
+droneControl2 is only PD-controlled, drifts forwards after taking off
+ControllerDrone currently has an issue that makes Webots crash (BAD!)
