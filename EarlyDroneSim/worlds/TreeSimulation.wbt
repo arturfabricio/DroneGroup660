@@ -1,0 +1,93 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.16884551639882014 -0.9623171264994952 -0.2131594230564776 4.440626595956177
+  position 9.012337858658311 5.143065982921356 -1.9218395506230355
+  near 0.2
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 50 50
+  tileSize 6 6
+  appearance Grass {
+  }
+}
+Solid {
+  translation -15 1 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 1
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.2
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject Sphere {
+    radius 0.2
+    subdivision 2
+  }
+}
+SquareManhole {
+  translation 0 -0.03 0
+}
+Pine {
+  translation -9.2383 0 1.0528
+  rotation 0 1 0 3.14159
+}
+Pine {
+  translation -19.6195 0 24.3783
+  rotation 0 1 0 2.87979
+  name "pine tree(1)"
+}
+Pine {
+  translation -4.0929 0 5.69795
+  name "pine tree(3)"
+}
+Pine {
+  translation -10.6926 0 25.1339
+  name "pine tree(4)"
+}
+Pine {
+  translation -11.0341 0 -4.9721
+  name "pine tree(5)"
+}
+Pine {
+  translation -16.5128 0 7.1707
+  name "pine tree(6)"
+}
+Pine {
+  translation -3.78029 0 -4.33859
+  rotation 0 1 0 -2.618
+  name "pine tree(2)"
+}
+Mavic2Pro {
+  hidden position_0_0 1.3371668460219547e-09
+  hidden position_6_0 -3.1219435925322614e-09
+  hidden position_7_0 -1.1844401015537187e-09
+  translation 0.05120088513263196 0.08570872787430694 -0.02715705281688553
+  rotation 0.012914887168419884 0.7066381645937433 0.7074572142744838 3.068792752017167
+  name "Mavic 2 PRO(1)"
+  controller "Mavic2ProNoCSV"
+}
