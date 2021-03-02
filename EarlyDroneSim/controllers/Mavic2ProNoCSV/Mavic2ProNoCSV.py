@@ -89,6 +89,7 @@ yawPID = PID(float(yaw_Kp), float(yaw_Ki), float(yaw_Kd), setpoint=float(yaw_set
 targetX, targetY, target_altitude = 0.0, 0.0, 1.0
 
 while (robot.step(timestep) != -1):
+    pitchDisturbance = 0.5
     initial_location = get_my_location()
     print("Initial location: ", initial_location)
     m_line = np.array(GOAL_POINT) - np.array(initial_location)
@@ -113,8 +114,7 @@ while (robot.step(timestep) != -1):
     pitchPID.setpoint = targetY
 	
     roll_input = float(k_roll_p) * roll + roll_acceleration + rollPID(xGPS)
-    pitch_input = float(k_pitch_p) * pitch - pitch_acceleration + pitchPID(-yGPS)
-
+    pitch_input = float(k_pitch_p) * pitch - pitch_acceleration + pitchDisturbance
     front_left_motor_input = float(k_vertical_thrust) + vertical_input - roll_input - pitch_input + yaw_input
     front_right_motor_input = float(k_vertical_thrust) + vertical_input + roll_input - pitch_input - yaw_input
     rear_left_motor_input = float(k_vertical_thrust) + vertical_input - roll_input + pitch_input - yaw_input
