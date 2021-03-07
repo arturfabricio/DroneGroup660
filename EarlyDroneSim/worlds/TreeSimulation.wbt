@@ -13,8 +13,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.16884551639882014 -0.9623171264994952 -0.2131594230564776 4.440626595956177
-  position 44.92518462903579 17.707023208036023 -8.295788026278126
+  orientation 0.2661928704852547 -0.9277003185621474 -0.2617507872815489 4.619468339476324
+  position 37.221302048745116 26.886246406856802 1.7539315415107837
   near 0.2
   followSmoothness 0.2
 }
@@ -24,13 +24,14 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 Floor {
-  size 50 25
+  translation -25 0 0
+  size 55 25
   tileSize 6 6
   appearance Grass {
   }
 }
 Solid {
-  translation -15 1 0
+  translation -25 1 0
   children [
     Shape {
       appearance PBRAppearance {
@@ -53,7 +54,7 @@ SquareManhole {
   translation 0 -0.03 0
 }
 Pine {
-  translation -9.2383 0 1.0528
+  translation -13.2383 0 1.2228
   rotation 0 1 0 3.14159
 }
 Pine {
@@ -61,31 +62,20 @@ Pine {
   name "pine tree(3)"
 }
 Pine {
-  translation -11.0341 0 -4.9721
+  translation -19.2741 0 -2.4821
   name "pine tree(5)"
 }
 Pine {
-  translation -16.5128 0 7.1707
+  translation -21.3228 0 3.9207
   name "pine tree(6)"
 }
 Pine {
-  translation -3.78029 0 -4.33859
+  translation -2.82529 0 -2.68451
   rotation 0 1 0 -2.618
   name "pine tree(2)"
 }
 Mavic2Pro {
-  hidden position_0_0 -9.938122067613596e-13
-  hidden linearVelocity_0 -9.925414560760846e-07 3.3226703743472774e-05 -3.386940062238415e-08
-  hidden angularVelocity_0 -2.5011687181357397e-06 -5.720001595398388e-08 7.000904439146368e-05
-  hidden position_6_0 -1.0055318452938681e-11
-  hidden linearVelocity_6 -3.0989008040936594e-06 2.4473251409814985e-05 -1.162738917296457e-07
-  hidden angularVelocity_6 -2.50193363344382e-06 -6.816902368227536e-08 7.000901857880435e-05
-  hidden position_7_0 6.191269419145117e-13
-  hidden linearVelocity_7 -2.7516961872057592e-06 2.4580425762323436e-05 -1.0376129949192459e-07
-  hidden angularVelocity_7 -2.502559815038412e-06 -6.816916123839455e-08 7.002787015205214e-05
-  hidden linearVelocity_8 -2.1497550093767805e-06 2.4477964833076297e-05 -8.23380672357983e-08
-  hidden angularVelocity_8 -2.514311921687584e-06 -6.734842887492352e-08 7.00274791710946e-05
-  translation 0.05119737805233435 0.08573109378107932 -0.027157189658976635
+  translation 0 0.0857311 -0.0271572
   rotation 0.012894661414002976 0.7066387842486183 0.707456964276028 3.068833056504274
   name "Mavic 2 PRO(1)"
   controller "Mavic2ProNoCSV"
